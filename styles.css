@@ -220,7 +220,7 @@ footer {
 
     nav {
         flex-direction: column;
-        max-height: 60vh; /* Limit the height of the navigation menu */
+        max-height: 50vh; /* Limit the height of the navigation menu */
         overflow-y: auto; /* Allow scrolling of the menu */
     }
 
