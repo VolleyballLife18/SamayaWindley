@@ -48,10 +48,39 @@ nav a:hover {
 
 /* Hamburger Icon (Initially hidden on large screens) */
 .hamburger-icon {
-    display: none;
+    display: none; /* Initially hidden */
     font-size: 2em;
     color: white;
     cursor: pointer;
+}
+
+/* Make the hamburger menu visible on small screens */
+@media screen and (max-width: 768px) {
+    /* Show hamburger icon only on mobile screens */
+    .hamburger-icon {
+        display: block; /* Show on mobile */
+    }
+
+    /* Hide the navigation menu by default on small screens */
+    nav {
+        display: none; /* Hide navigation links on small screens by default */
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Show the menu when the 'active' class is toggled */
+    nav.active {
+        display: flex; /* Show the navigation menu when toggled */
+    }
+
+    /* Style the individual navigation links */
+    nav a {
+        display: block; /* Stack the links vertically */
+        text-align: center;
+        padding: 10px;
+        font-size: 1.5em;
+        margin: 5px 0;
+    }
 }
 
 /* Hero Section */
