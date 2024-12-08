@@ -156,9 +156,6 @@ footer {
 .stats-page th {
     background-color: #004080; /* Header background color */
     color: white; /* Header text color */
-    position: sticky; /* Sticky header */
-    top: 0; /* Position at the top */
-    z-index: 2; /* Ensure header is above table content */
 }
 
 .stats-page tr:nth-child(even) {
@@ -177,45 +174,6 @@ footer {
 /* Add some spacing to the table */
 .stats-page {
     margin-top: 20px;
-}
-
-/* Make the table container scrollable */
-.table-container {
-    max-height: 400px; /* Set the max height for the table container */
-    overflow-y: auto; /* Enable vertical scrolling */
-    border: 1px solid #ddd; /* Optional: Add a border around the table container */
-    margin-top: 20px;
-}
-
-/* Ensure the table spans the full width */
-.table-container table {
-    width: 100%;
-    border-collapse: collapse; /* Keep borders collapsed */
-}
-
-/* Sticky Header */
-.table-container th {
-    position: sticky;
-    top: 0; /* Sticks the header to the top */
-    background-color: #004080; /* Maintain your header color */
-    color: white; /* Header text color */
-    z-index: 2; /* Keeps the header above the rows */
-}
-
-/* Table cell styling */
-.table-container td {
-    padding: 8px;
-    text-align: center;
-    border: 1px solid #ddd;
-}
-
-/* Alternating Row Colors */
-.table-container tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.table-container tr:hover {
-    background-color: #f1f1f1;
 }
 
 /* Videos Page */
