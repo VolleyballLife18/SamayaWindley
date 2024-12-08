@@ -358,3 +358,11 @@ footer {
         display: none;
     }
 }
+
+/* Temporary force display of the hamburger icon */
+.hamburger-icon {
+    display: block !important; /* Force display of the icon for testing */
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+}
