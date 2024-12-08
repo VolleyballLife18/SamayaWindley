@@ -1,0 +1,230 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 1.1em; /* Sets a consistent font size across all pages */
+    line-height: 1.6; /* Improves readability */
+}
+
+header {
+    background-color: #00274d;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav {
+    background-color: #004080;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1.1em;
+}
+
+nav a:hover {
+    background-color: #ffcc00;
+    color: #004080;
+    border-radius: 5px;
+}
+
+.hero {
+    background: url('volleyball-court.jpg') no-repeat center center/cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333; /* Use black font for better consistency */
+    text-shadow: none; /* Remove shadow for simplicity */
+}
+
+.hero h2 {
+    font-size: 2em;
+    text-align: center;
+    color: #333; /* Black font for the heading */
+}
+
+.container {
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.highlight-video {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+footer {
+    background-color: #00274d;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* About Me Section */
+.about-me {
+    display: flex; /* Aligns image and text side by side */
+    align-items: flex-start; /* Aligns items at the top */
+    gap: 20px; /* Space between the image and text */
+    margin-top: 10px; /* Reduced space to move content up */
+}
+
+.profile-photo-left {
+    width: 200px; /* Keeps the image size consistent */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Adds subtle rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for emphasis */
+    margin-top: 5px; /* Aligns image with text */
+}
+
+.about-me-text {
+    flex: 1; /* Ensures the text takes up available space */
+    font-size: 1.1em; /* Slightly larger font for readability */
+    line-height: 1.6; /* Improves line spacing for better readability */
+}
+
+/* Fix for the bullet points */
+.about-me-text ul {
+    list-style-type: disc; /* Restores the bullets */
+    margin-left: 20px; /* Indents the bullets for better alignment */
+    padding: 0;
+}
+
+.about-me-text ul li {
+    margin-bottom: 8px; /* Adds spacing between bullet points */
+    font-size: 1.1em; /* Keeps font size consistent */
+}
+
+.about-me-text ul li strong {
+    font-weight: bold; /* Keeps the labels bold */
+}
+
+/* Stats Page */
+.stats-page table {
+    width: 100%; /* Make the table span the full width */
+    border-collapse: collapse; /* Remove double borders */
+    text-align: left; /* Align text to the left */
+    font-size: 0.9em; /* Reduce font size for better fit */
+}
+
+.stats-page th,
+.stats-page td {
+    border: 1px solid #ddd; /* Light border around cells */
+    padding: 8px; /* Reduce padding for less whitespace */
+}
+
+.stats-page th {
+    background-color: #004080; /* Header background color */
+    color: white; /* Header text color */
+    position: sticky; /* Sticky header */
+    top: 0; /* Position at the top */
+    z-index: 2; /* Ensure header is above table content */
+}
+
+.stats-page tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray for alternating rows */
+}
+
+.stats-page tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+/* Center align smaller text for stats */
+.stats-page td {
+    text-align: center; /* Center-align numerical data */
+}
+
+/* Add some spacing to the table */
+.stats-page {
+    margin-top: 20px;
+}
+
+/* Make the table container scrollable */
+.table-container {
+    max-height: 400px; /* Set the max height for the table container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ddd; /* Optional: Add a border around the table container */
+    margin-top: 20px;
+}
+
+/* Ensure the table spans the full width */
+.table-container table {
+    width: 100%;
+    border-collapse: collapse; /* Keep borders collapsed */
+}
+
+/* Sticky Header */
+.table-container th {
+    position: sticky;
+    top: 0; /* Sticks the header to the top */
+    background-color: #004080; /* Maintain your header color */
+    color: white; /* Header text color */
+    z-index: 2; /* Keeps the header above the rows */
+}
+
+/* Table cell styling */
+.table-container td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Alternating Row Colors */
+.table-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-container tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Videos Page */
+.videos-container {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.full-games,
+.highlight-videos {
+    margin-bottom: 30px;
+}
+
+.full-games button,
+.highlight-videos button {
+    background-color: #004080;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.full-games button:hover,
+.highlight-videos button:hover {
+    background-color: #ffcc00;
+    color: #004080;
+    border-radius: 5px;
+}
+
+.highlight-video-list iframe {
+    margin-top: 10px;
+}
