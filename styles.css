@@ -80,6 +80,24 @@ footer {
     margin-top: 20px;
 }
 
+/* Ensure highlight video and the text are centered */
+.highlight-video-container {
+    display: flex; 
+    flex-direction: column; /* Stack the text and video vertically */
+    align-items: center; /* Center the items horizontally */
+    justify-content: center;
+    margin-top: 20px; /* Space between the section and previous content */
+}
+
+/* Styling for the "Coming Soon" text */
+.coming-soon-text {
+    text-align: center; /* Center the text */
+    font-size: 1.2em; /* Larger text */
+    margin-bottom: 20px; /* Space between the text and the video */
+    font-weight: bold; /* Make the text bold */
+    color: #333; /* Dark text color */
+}
+
 /* About Me Section */
 .about-me {
     display: flex; /* Aligns image and text side by side */
