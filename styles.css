@@ -259,8 +259,16 @@ footer {
         max-height: 300px; /* Adjust as needed to fit the menu items */
     }
 
+    nav a {
+        display: none; /* Hide links by default */
+    }
+
+    nav.expanded a {
+        display: block; /* Show links when expanded */
+    }
+
     .menu-toggle {
-        display: block; /* Show the toggle button */
+        display: block; /* Show the hamburger icon */
         background-color: #004080;
         color: white;
         font-size: 1.5em;
@@ -272,11 +280,5 @@ footer {
     .menu-toggle:hover {
         background-color: #ffcc00;
         color: #004080;
-    }
-
-    nav a {
-        display: block; /* Stack links */
-        padding: 10px 0;
-        text-align: center; /* Center-align links */
     }
 }
