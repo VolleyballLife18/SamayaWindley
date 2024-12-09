@@ -144,28 +144,70 @@ footer {
     font-weight: bold; /* Keeps the labels bold */
 }
 
-/* Schedule container to handle overflow */
-.schedule-container {
-    overflow-x: auto; /* Allow horizontal scrolling inside the container */
-    padding: 0 10px; /* Add padding to avoid content hitting edges */
-    box-sizing: border-box; /* Include padding in the total width */
-}
-
-.schedule-container table {
-    width: 100%; /* Ensure the table adjusts to fit the container */
-    border-collapse: collapse; /* Remove extra spacing between cells */
-}
-
-.schedule-container th,
-.schedule-container td {
-    padding: 8px;
+/* Stats Page */
+.stats-page table {
+    width: 100%; /* Make the table span the full width */
+    border-collapse: collapse; /* Remove double borders */
     text-align: left; /* Align text to the left */
-    border: 1px solid #ddd; /* Add a light border around cells */
+    font-size: 0.9em; /* Reduce font size for better fit */
 }
 
-.schedule-container th {
+.stats-page th,
+.stats-page td {
+    border: 1px solid #ddd; /* Light border around cells */
+    padding: 8px; /* Reduce padding for less whitespace */
+}
+
+.stats-page th {
     background-color: #004080; /* Header background color */
     color: white; /* Header text color */
+}
+
+.stats-page tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray for alternating rows */
+}
+
+.stats-page tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+.stats-page td {
+    text-align: center; /* Center-align numerical data */
+}
+
+.stats-page {
+    margin-top: 20px;
+}
+
+.videos-container {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.full-games,
+.highlight-videos {
+    margin-bottom: 30px;
+}
+
+.full-games button,
+.highlight-videos button {
+    background-color: #004080;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.full-games button:hover,
+.highlight-videos button:hover {
+    background-color: #ffcc00;
+    color: #004080;
+    border-radius: 5px;
+}
+
+.highlight-video-list iframe {
+    margin-top: 10px;
 }
 
 /* Make the website more responsive */
@@ -194,10 +236,6 @@ footer {
 
     .profile-photo-left {
         width: 150px;
-    }
-
-    .schedule-container table {
-        font-size: 0.9em; /* Slightly reduce font size on mobile */
     }
 
     nav {
@@ -232,5 +270,35 @@ footer {
     .menu-toggle:hover {
         background-color: #ffcc00;
         color: #004080;
+    }
+
+    /* Ensure the schedule page table does not cause horizontal scrolling */
+.schedule-container {
+    overflow-x: auto; /* Allow horizontal scrolling inside the container */
+    padding: 0 10px; /* Add padding to avoid content hitting edges */
+    box-sizing: border-box; /* Include padding in the total width */
+}
+
+.schedule-container table {
+    width: 100%; /* Ensure the table adjusts to fit the container */
+    border-collapse: collapse; /* Remove extra spacing between cells */
+}
+
+.schedule-container th,
+.schedule-container td {
+    padding: 8px;
+    text-align: left; /* Align text to the left */
+    border: 1px solid #ddd; /* Add a light border around cells */
+}
+
+.schedule-container th {
+    background-color: #004080; /* Header background color */
+    color: white; /* Header text color */
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .schedule-container table {
+        font-size: 0.9em; /* Slightly reduce font size on mobile */
     }
 }
