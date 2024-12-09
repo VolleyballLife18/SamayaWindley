@@ -220,8 +220,6 @@ footer {
 
     nav {
         flex-direction: column;
-        max-height: 50vh; /* Limit the height of the navigation menu */
-        overflow-y: auto; /* Allow scrolling of the menu */
     }
 
     nav a {
@@ -246,5 +244,39 @@ footer {
 
     .profile-photo-left {
         width: 150px;
+    }
+
+    /* Default hidden state for the menu on mobile */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack menu items vertically */
+        max-height: 0; /* Hide the menu by default */
+        overflow: hidden; /* Prevent overflow from showing */
+        transition: max-height 0.3s ease-out; /* Smooth open/close animation */
+    }
+
+    nav.expanded {
+        max-height: 300px; /* Adjust as needed to fit the menu items */
+    }
+
+    .menu-toggle {
+        display: block; /* Show the toggle button */
+        background-color: #004080;
+        color: white;
+        font-size: 1.5em;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .menu-toggle:hover {
+        background-color: #ffcc00;
+        color: #004080;
+    }
+
+    nav a {
+        display: block; /* Stack links */
+        padding: 10px 0;
+        text-align: center; /* Center-align links */
     }
 }
