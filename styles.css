@@ -210,23 +210,6 @@ footer {
     margin-top: 10px;
 }
 
-/* Custom Button Styling */
-.youtube-button {
-    background-color: #004080; /* Dark blue background */
-    color: white; /* White text */
-    padding: 10px 20px; /* Spacing inside the button */
-    font-size: 1.2em; /* Slightly larger text size */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Slightly rounded corners */
-    cursor: pointer; /* Hand cursor on hover */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.youtube-button:hover {
-    background-color: #ffcc00; /* Gold background on hover */
-    color: #004080; /* Dark blue text on hover */
-}
-
 /* Make the website more responsive */
 @media screen and (max-width: 768px) {
     header h1 {
@@ -287,35 +270,5 @@ footer {
     .menu-toggle:hover {
         background-color: #ffcc00;
         color: #004080;
-    }
-
-    /* Ensure the schedule page table does not cause horizontal scrolling */
-.schedule-container {
-    overflow-x: auto; /* Allow horizontal scrolling inside the container */
-    padding: 0 10px; /* Add padding to avoid content hitting edges */
-    box-sizing: border-box; /* Include padding in the total width */
-}
-
-.schedule-container table {
-    width: 100%; /* Ensure the table adjusts to fit the container */
-    border-collapse: collapse; /* Remove extra spacing between cells */
-}
-
-.schedule-container th,
-.schedule-container td {
-    padding: 8px;
-    text-align: left; /* Align text to the left */
-    border: 1px solid #ddd; /* Add a light border around cells */
-}
-
-.schedule-container th {
-    background-color: #004080; /* Header background color */
-    color: white; /* Header text color */
-}
-
-/* Mobile adjustments */
-@media screen and (max-width: 768px) {
-    .schedule-container table {
-        font-size: 0.9em; /* Slightly reduce font size on mobile */
     }
 }
