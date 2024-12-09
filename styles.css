@@ -218,16 +218,6 @@ footer {
         font-size: 1.5em;
     }
 
-    nav {
-        flex-direction: column;
-    }
-
-    nav a {
-        padding: 8px 16px;
-        margin: 5px 0;
-        font-size: 1em; /* Smaller font size for mobile */
-    }
-
     .highlight-video-container {
         margin-top: 20px;
     }
@@ -247,7 +237,6 @@ footer {
     }
 
     /* Default hidden state for the menu on mobile */
-@media screen and (max-width: 768px) {
     nav {
         flex-direction: column; /* Stack menu items vertically */
         max-height: 0; /* Hide the menu by default */
