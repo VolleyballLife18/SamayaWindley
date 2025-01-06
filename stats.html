@@ -259,15 +259,16 @@
     let seasonAttackAttempts = 0;
     let seasonAces = 0;
     let seasonServePercentage = 0;
-    let totalTournaments = 0; // Count of tournaments to calculate averages
+    let totalTournaments = 0;
     let totalServeReceive = 0;
+    let totalServePercentage = 0;
     let totalHittingPercentage = 0;
     
     // Loop through each row in the table (starting from the second row)
     const rows = document.querySelectorAll('table tbody tr');
     rows.forEach(function(row, index) {
         // Check if the row has enough cells to prevent errors
-        if (row.cells.length >= 11) {  // Ensures the row has at least 11 cells
+        if (row.cells.length >= 11) {  
             let digs = parseFloat(row.cells[3].innerText) || 0; // Digs in column 4 (index 3)
             let serveReceive = parseFloat(row.cells[4].innerText) || 0; // Serve Receive in column 5 (index 4)
             let defensiveAttempts = parseFloat(row.cells[5].innerText) || 0; // Defensive Attempts in column 6 (index 5)
@@ -276,10 +277,6 @@
             let hittingPercentage = parseFloat(row.cells[8].innerText) || 0; // Hitting Percentage in column 9 (index 8)
             let aces = parseFloat(row.cells[9].innerText) || 0; // Aces in column 10 (index 9)
             let servePercentage = parseFloat(row.cells[10].innerText) || 0; // Serve Percentage in column 11 (index 10)
-
-            // Log the values for debugging
-            console.log(`Tournament: ${row.cells[0].innerText}`);
-            console.log(`Digs: ${digs}, Serve Receive: ${serveReceive}, Defensive Attempts: ${defensiveAttempts}, Kills: ${kills}, Attack Attempts: ${attackAttempts}, Hitting Percentage: ${hittingPercentage}, Aces: ${aces}, Serve Percentage: ${servePercentage}`);
 
             // Accumulate the stats
             seasonDigs += digs;
@@ -291,7 +288,7 @@
             // Accumulate averages for stats that need averaging
             totalServeReceive += serveReceive;
             totalHittingPercentage += hittingPercentage;
-            seasonServePercentage += servePercentage;
+            totalServePercentage += servePercentage;
 
             totalTournaments++; // Increment the number of tournaments for averaging
         }
@@ -300,11 +297,7 @@
     // Calculate averages for Serve Receive, Hitting Percentage, and Serve Percentage
     let averageServeReceive = totalTournaments > 0 ? totalServeReceive / totalTournaments : 0;
     let averageHittingPercentage = seasonAttackAttempts > 0 ? (seasonKills / seasonAttackAttempts) * 100 : 0;
-    let averageServePercentage = totalTournaments > 0 ? seasonServePercentage / totalTournaments : 0;
-
-    // Log the final totals for debugging
-    console.log("Season Totals:");
-    console.log(`Digs: ${seasonDigs}, Serve Receive: ${averageServeReceive}, Defensive Attempts: ${seasonDefensiveAttempts}, Kills: ${seasonKills}, Attack Attempts: ${seasonAttackAttempts}, Hitting Percentage: ${averageHittingPercentage}, Aces: ${seasonAces}, Serve Percentage: ${averageServePercentage}`);
+    let averageServePercentage = totalTournaments > 0 ? totalServePercentage / totalTournaments : 0;
 
     // Update the season totals (display in the table)
     document.getElementById('season-digs').innerText = seasonDigs;
