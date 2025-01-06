@@ -260,6 +260,7 @@
     let seasonHittingPercentage = 0;
     let seasonAces = 0;
     let seasonServePercentage = 0;
+    let totalTournaments = 0; // Count of tournaments to calculate averages
 
     // Loop through each row in the table (starting from the second row)
     const rows = document.querySelectorAll('table tbody tr');
@@ -288,22 +289,29 @@
             seasonHittingPercentage += hittingPercentage;
             seasonAces += aces;
             seasonServePercentage += servePercentage;
+
+            totalTournaments++; // Increment the number of tournaments for averaging
         }
     });
 
+    // Calculate averages for Serve Receive, Hitting Percentage, and Serve Percentage
+    let averageServeReceive = totalTournaments > 0 ? seasonServeReceive / totalTournaments : 0;
+    let averageHittingPercentage = seasonAttackAttempts > 0 ? (seasonKills / seasonAttackAttempts) * 100 : 0;
+    let averageServePercentage = totalTournaments > 0 ? (seasonAces / seasonDefensiveAttempts) * 100 : 0;
+
     // Log the final totals for debugging
     console.log("Season Totals:");
-    console.log(`Digs: ${seasonDigs}, Serve Receive: ${seasonServeReceive}, Defensive Attempts: ${seasonDefensiveAttempts}, Kills: ${seasonKills}, Attack Attempts: ${seasonAttackAttempts}, Hitting Percentage: ${seasonHittingPercentage}, Aces: ${seasonAces}, Serve Percentage: ${seasonServePercentage}`);
+    console.log(`Digs: ${seasonDigs}, Serve Receive: ${averageServeReceive}, Defensive Attempts: ${seasonDefensiveAttempts}, Kills: ${seasonKills}, Attack Attempts: ${seasonAttackAttempts}, Hitting Percentage: ${averageHittingPercentage}, Aces: ${seasonAces}, Serve Percentage: ${averageServePercentage}`);
 
     // Update the season totals (display in the table)
     document.getElementById('season-digs').innerText = seasonDigs;
-    document.getElementById('season-serve-receive').innerText = seasonServeReceive;
+    document.getElementById('season-serve-receive').innerText = averageServeReceive.toFixed(2); // Round to 2 decimals
     document.getElementById('season-defensive-attempts').innerText = seasonDefensiveAttempts;
     document.getElementById('season-kills').innerText = seasonKills;
     document.getElementById('season-attack-attempts').innerText = seasonAttackAttempts;
-    document.getElementById('season-hitting-percentage').innerText = seasonHittingPercentage;
+    document.getElementById('season-hitting-percentage').innerText = averageHittingPercentage.toFixed(2); // Round to 2 decimals
     document.getElementById('season-aces').innerText = seasonAces;
-    document.getElementById('season-serve-percentage').innerText = seasonServePercentage;
+    document.getElementById('season-serve-percentage').innerText = averageServePercentage.toFixed(2); // Round to 2 decimals
 }
 
 // Call updateTotals() when the page loads
