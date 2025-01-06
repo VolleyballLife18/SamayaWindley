@@ -261,17 +261,18 @@
     let seasonAces = 0;
     let seasonServePercentage = 0;
 
-    // Loop through each tournament row and accumulate the stats
-    const rows = document.querySelectorAll('tr[id^="digs-"]'); // Select rows with stats IDs
+    // Loop through each row in the table (starting from the second row)
+    const rows = document.querySelectorAll('table tbody tr');
     rows.forEach(function(row, index) {
-        let digs = parseFloat(document.getElementById('digs-' + (index + 1)).innerText) || 0;
-        let serveReceive = parseFloat(document.getElementById('serve-receive-' + (index + 1)).innerText) || 0;
-        let defensiveAttempts = parseFloat(document.getElementById('defensive-attempts-' + (index + 1)).innerText) || 0;
-        let kills = parseFloat(document.getElementById('kills-' + (index + 1)).innerText) || 0;
-        let attackAttempts = parseFloat(document.getElementById('attack-attempts-' + (index + 1)).innerText) || 0;
-        let hittingPercentage = parseFloat(document.getElementById('hitting-percentage-' + (index + 1)).innerText) || 0;
-        let aces = parseFloat(document.getElementById('aces-' + (index + 1)).innerText) || 0;
-        let servePercentage = parseFloat(document.getElementById('serve-percentage-' + (index + 1)).innerText) || 0;
+        // Get the stats from each row
+        let digs = parseFloat(row.cells[3].innerText) || 0; // Digs in column 4 (index 3)
+        let serveReceive = parseFloat(row.cells[4].innerText) || 0; // Serve Receive in column 5 (index 4)
+        let defensiveAttempts = parseFloat(row.cells[5].innerText) || 0; // Defensive Attempts in column 6 (index 5)
+        let kills = parseFloat(row.cells[6].innerText) || 0; // Kills in column 7 (index 6)
+        let attackAttempts = parseFloat(row.cells[7].innerText) || 0; // Attack Attempts in column 8 (index 7)
+        let hittingPercentage = parseFloat(row.cells[8].innerText) || 0; // Hitting Percentage in column 9 (index 8)
+        let aces = parseFloat(row.cells[9].innerText) || 0; // Aces in column 10 (index 9)
+        let servePercentage = parseFloat(row.cells[10].innerText) || 0; // Serve Percentage in column 11 (index 10)
 
         // Accumulate the stats
         seasonDigs += digs;
@@ -284,7 +285,7 @@
         seasonServePercentage += servePercentage;
     });
 
-    // Update the season totals
+    // Update the season totals (display in the table)
     document.getElementById('season-digs').innerText = seasonDigs;
     document.getElementById('season-serve-receive').innerText = seasonServeReceive;
     document.getElementById('season-defensive-attempts').innerText = seasonDefensiveAttempts;
