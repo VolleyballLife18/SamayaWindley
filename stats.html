@@ -251,30 +251,29 @@
     <script>
         // Function to update the season totals when a stat is entered
         function updateTotals() {
-    // Manually set your season totals here
-    let seasonDigs = 37;
-    let seasonServeReceive = 1.82; // Example value
-    let seasonDefensiveAttempts = 49;
-    let seasonKills = 29;
-    let seasonAttackAttempts = 106;
-    let seasonHittingPercentage = 0.085; // Example value
-    let seasonAces = 15;
-    let seasonServePercentage = 82.1; // Example value
+            // Manually set your season totals here
+            let seasonDigs = 37;
+            let seasonServeReceive = 1.82; // Example value
+            let seasonDefensiveAttempts = 49;
+            let seasonKills = 29;
+            let seasonAttackAttempts = 106;
+            let seasonHittingPercentage = 0.085; // Example value
+            let seasonAces = 15;
+            let seasonServePercentage = 82.1; // Example value
 
-    // Update the page with the manually set season totals
-    document.getElementById('season-digs').innerText = seasonDigs;
-    document.getElementById('season-serve-receive').innerText = seasonServeReceive.toFixed(2); // Round to 2 decimals
-    document.getElementById('season-defensive-attempts').innerText = seasonDefensiveAttempts;
-    document.getElementById('season-kills').innerText = seasonKills;
-    document.getElementById('season-attack-attempts').innerText = seasonAttackAttempts;
-    document.getElementById('season-hitting-percentage').innerText = seasonHittingPercentage.toFixed(2); // Round to 2 decimals
-    document.getElementById('season-aces').innerText = seasonAces;
-    document.getElementById('season-serve-percentage').innerText = seasonServePercentage.toFixed(2); // Round to 2 decimals
-}
+            // Update the page with the manually set season totals
+            document.getElementById('season-digs').innerText = seasonDigs;
+            document.getElementById('season-serve-receive').innerText = seasonServeReceive.toFixed(2); // Round to 2 decimals
+            document.getElementById('season-defensive-attempts').innerText = seasonDefensiveAttempts;
+            document.getElementById('season-kills').innerText = seasonKills;
+            document.getElementById('season-attack-attempts').innerText = seasonAttackAttempts;
+            document.getElementById('season-hitting-percentage').innerText = seasonHittingPercentage.toFixed(2); // Round to 2 decimals
+            document.getElementById('season-aces').innerText = seasonAces;
+            document.getElementById('season-serve-percentage').innerText = seasonServePercentage.toFixed(2); // Round to 2 decimals
+        }
 
-// Call updateTotals() when the page loads to manually update the totals
-window.onload = updateTotals;
-
-    <script src="script.js"></script>
+        // Call updateTotals() when the page loads to manually update the totals
+        window.onload = updateTotals;
+    </script>
 </body>
 </html>
