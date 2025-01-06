@@ -259,10 +259,10 @@
     let seasonAttackAttempts = 0;
     let seasonAces = 0;
     let seasonServePercentage = 0;
-    let totalTournaments = 0;
+    let totalTournaments = 0; // This will count only the tournaments played
     let totalServeReceive = 0;
-    let totalServePercentage = 0;
     let totalHittingPercentage = 0;
+    let totalServePercentage = 0;
     
     // Loop through each row in the table (starting from the second row)
     const rows = document.querySelectorAll('table tbody tr');
@@ -290,7 +290,7 @@
             totalHittingPercentage += hittingPercentage;
             totalServePercentage += servePercentage;
 
-            totalTournaments++; // Increment the number of tournaments for averaging
+            totalTournaments++; // Increment the number of tournaments played
         }
     });
 
