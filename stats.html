@@ -252,35 +252,48 @@
     <script>
         // Function to update the season totals when a stat is entered
         function updateTotals() {
-            let digs1 = parseFloat(document.getElementById('digs-1').innerText) || 0;
-            let serveReceive1 = parseFloat(document.getElementById('serve-receive-1').innerText) || 0;
-            let defensiveAttempts1 = parseFloat(document.getElementById('defensive-attempts-1').innerText) || 0;
-            let kills1 = parseFloat(document.getElementById('kills-1').innerText) || 0;
-            let attackAttempts1 = parseFloat(document.getElementById('attack-attempts-1').innerText) || 0;
-            let hittingPercentage1 = parseFloat(document.getElementById('hitting-percentage-1').innerText) || 0;
-            let aces1 = parseFloat(document.getElementById('aces-1').innerText) || 0;
-            let servePercentage1 = parseFloat(document.getElementById('serve-percentage-1').innerText) || 0;
+    let seasonDigs = 0;
+    let seasonServeReceive = 0;
+    let seasonDefensiveAttempts = 0;
+    let seasonKills = 0;
+    let seasonAttackAttempts = 0;
+    let seasonHittingPercentage = 0;
+    let seasonAces = 0;
+    let seasonServePercentage = 0;
 
-            // Sum up the totals
-            let seasonDigs = digs1;
-            let seasonServeReceive = serveReceive1;
-            let seasonDefensiveAttempts = defensiveAttempts1;
-            let seasonKills = kills1;
-            let seasonAttackAttempts = attackAttempts1;
-            let seasonHittingPercentage = hittingPercentage1;
-            let seasonAces = aces1;
-            let seasonServePercentage = servePercentage1;
+    // Loop through each tournament row and accumulate the stats
+    const rows = document.querySelectorAll('tr[id^="digs-"]'); // Select rows with stats IDs
+    rows.forEach(function(row, index) {
+        let digs = parseFloat(document.getElementById('digs-' + (index + 1)).innerText) || 0;
+        let serveReceive = parseFloat(document.getElementById('serve-receive-' + (index + 1)).innerText) || 0;
+        let defensiveAttempts = parseFloat(document.getElementById('defensive-attempts-' + (index + 1)).innerText) || 0;
+        let kills = parseFloat(document.getElementById('kills-' + (index + 1)).innerText) || 0;
+        let attackAttempts = parseFloat(document.getElementById('attack-attempts-' + (index + 1)).innerText) || 0;
+        let hittingPercentage = parseFloat(document.getElementById('hitting-percentage-' + (index + 1)).innerText) || 0;
+        let aces = parseFloat(document.getElementById('aces-' + (index + 1)).innerText) || 0;
+        let servePercentage = parseFloat(document.getElementById('serve-percentage-' + (index + 1)).innerText) || 0;
 
-            // Update the season totals
-            document.getElementById('season-digs').innerText = seasonDigs;
-            document.getElementById('season-serve-receive').innerText = seasonServeReceive;
-            document.getElementById('season-defensive-attempts').innerText = seasonDefensiveAttempts;
-            document.getElementById('season-kills').innerText = seasonKills;
-            document.getElementById('season-attack-attempts').innerText = seasonAttackAttempts;
-            document.getElementById('season-hitting-percentage').innerText = seasonHittingPercentage;
-            document.getElementById('season-aces').innerText = seasonAces;
-            document.getElementById('season-serve-percentage').innerText = seasonServePercentage;
-        }
+        // Accumulate the stats
+        seasonDigs += digs;
+        seasonServeReceive += serveReceive;
+        seasonDefensiveAttempts += defensiveAttempts;
+        seasonKills += kills;
+        seasonAttackAttempts += attackAttempts;
+        seasonHittingPercentage += hittingPercentage;
+        seasonAces += aces;
+        seasonServePercentage += servePercentage;
+    });
+
+    // Update the season totals
+    document.getElementById('season-digs').innerText = seasonDigs;
+    document.getElementById('season-serve-receive').innerText = seasonServeReceive;
+    document.getElementById('season-defensive-attempts').innerText = seasonDefensiveAttempts;
+    document.getElementById('season-kills').innerText = seasonKills;
+    document.getElementById('season-attack-attempts').innerText = seasonAttackAttempts;
+    document.getElementById('season-hitting-percentage').innerText = seasonHittingPercentage;
+    document.getElementById('season-aces').innerText = seasonAces;
+    document.getElementById('season-serve-percentage').innerText = seasonServePercentage;
+}
 
         // Call updateTotals() when the page loads to update totals automatically
         window.onload = updateTotals;
