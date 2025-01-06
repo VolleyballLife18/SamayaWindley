@@ -274,6 +274,10 @@
         let aces = parseFloat(row.cells[9].innerText) || 0; // Aces in column 10 (index 9)
         let servePercentage = parseFloat(row.cells[10].innerText) || 0; // Serve Percentage in column 11 (index 10)
 
+        // Log the values for debugging
+        console.log(`Tournament: ${row.cells[0].innerText}`);
+        console.log(`Digs: ${digs}, Serve Receive: ${serveReceive}, Defensive Attempts: ${defensiveAttempts}, Kills: ${kills}, Attack Attempts: ${attackAttempts}, Hitting Percentage: ${hittingPercentage}, Aces: ${aces}, Serve Percentage: ${servePercentage}`);
+
         // Accumulate the stats
         seasonDigs += digs;
         seasonServeReceive += serveReceive;
@@ -285,6 +289,10 @@
         seasonServePercentage += servePercentage;
     });
 
+    // Log the final totals for debugging
+    console.log("Season Totals:");
+    console.log(`Digs: ${seasonDigs}, Serve Receive: ${seasonServeReceive}, Defensive Attempts: ${seasonDefensiveAttempts}, Kills: ${seasonKills}, Attack Attempts: ${seasonAttackAttempts}, Hitting Percentage: ${seasonHittingPercentage}, Aces: ${seasonAces}, Serve Percentage: ${seasonServePercentage}`);
+
     // Update the season totals (display in the table)
     document.getElementById('season-digs').innerText = seasonDigs;
     document.getElementById('season-serve-receive').innerText = seasonServeReceive;
@@ -295,6 +303,10 @@
     document.getElementById('season-aces').innerText = seasonAces;
     document.getElementById('season-serve-percentage').innerText = seasonServePercentage;
 }
+
+// Call updateTotals() when the page loads
+window.onload = updateTotals;
+
 
         // Call updateTotals() when the page loads to update totals automatically
         window.onload = updateTotals;
