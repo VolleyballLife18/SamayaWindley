@@ -264,29 +264,31 @@
     // Loop through each row in the table (starting from the second row)
     const rows = document.querySelectorAll('table tbody tr');
     rows.forEach(function(row, index) {
-        // Get the stats from each row
-        let digs = parseFloat(row.cells[3].innerText) || 0; // Digs in column 4 (index 3)
-        let serveReceive = parseFloat(row.cells[4].innerText) || 0; // Serve Receive in column 5 (index 4)
-        let defensiveAttempts = parseFloat(row.cells[5].innerText) || 0; // Defensive Attempts in column 6 (index 5)
-        let kills = parseFloat(row.cells[6].innerText) || 0; // Kills in column 7 (index 6)
-        let attackAttempts = parseFloat(row.cells[7].innerText) || 0; // Attack Attempts in column 8 (index 7)
-        let hittingPercentage = parseFloat(row.cells[8].innerText) || 0; // Hitting Percentage in column 9 (index 8)
-        let aces = parseFloat(row.cells[9].innerText) || 0; // Aces in column 10 (index 9)
-        let servePercentage = parseFloat(row.cells[10].innerText) || 0; // Serve Percentage in column 11 (index 10)
+        // Check if the row has enough cells to prevent errors
+        if (row.cells.length >= 11) {  // Ensures the row has at least 11 cells
+            let digs = parseFloat(row.cells[3].innerText) || 0; // Digs in column 4 (index 3)
+            let serveReceive = parseFloat(row.cells[4].innerText) || 0; // Serve Receive in column 5 (index 4)
+            let defensiveAttempts = parseFloat(row.cells[5].innerText) || 0; // Defensive Attempts in column 6 (index 5)
+            let kills = parseFloat(row.cells[6].innerText) || 0; // Kills in column 7 (index 6)
+            let attackAttempts = parseFloat(row.cells[7].innerText) || 0; // Attack Attempts in column 8 (index 7)
+            let hittingPercentage = parseFloat(row.cells[8].innerText) || 0; // Hitting Percentage in column 9 (index 8)
+            let aces = parseFloat(row.cells[9].innerText) || 0; // Aces in column 10 (index 9)
+            let servePercentage = parseFloat(row.cells[10].innerText) || 0; // Serve Percentage in column 11 (index 10)
 
-        // Log the values for debugging
-        console.log(`Tournament: ${row.cells[0].innerText}`);
-        console.log(`Digs: ${digs}, Serve Receive: ${serveReceive}, Defensive Attempts: ${defensiveAttempts}, Kills: ${kills}, Attack Attempts: ${attackAttempts}, Hitting Percentage: ${hittingPercentage}, Aces: ${aces}, Serve Percentage: ${servePercentage}`);
+            // Log the values for debugging
+            console.log(`Tournament: ${row.cells[0].innerText}`);
+            console.log(`Digs: ${digs}, Serve Receive: ${serveReceive}, Defensive Attempts: ${defensiveAttempts}, Kills: ${kills}, Attack Attempts: ${attackAttempts}, Hitting Percentage: ${hittingPercentage}, Aces: ${aces}, Serve Percentage: ${servePercentage}`);
 
-        // Accumulate the stats
-        seasonDigs += digs;
-        seasonServeReceive += serveReceive;
-        seasonDefensiveAttempts += defensiveAttempts;
-        seasonKills += kills;
-        seasonAttackAttempts += attackAttempts;
-        seasonHittingPercentage += hittingPercentage;
-        seasonAces += aces;
-        seasonServePercentage += servePercentage;
+            // Accumulate the stats
+            seasonDigs += digs;
+            seasonServeReceive += serveReceive;
+            seasonDefensiveAttempts += defensiveAttempts;
+            seasonKills += kills;
+            seasonAttackAttempts += attackAttempts;
+            seasonHittingPercentage += hittingPercentage;
+            seasonAces += aces;
+            seasonServePercentage += servePercentage;
+        }
     });
 
     // Log the final totals for debugging
@@ -303,6 +305,10 @@
     document.getElementById('season-aces').innerText = seasonAces;
     document.getElementById('season-serve-percentage').innerText = seasonServePercentage;
 }
+
+// Call updateTotals() when the page loads
+window.onload = updateTotals;
+
 
 // Call updateTotals() when the page loads
 window.onload = updateTotals;
